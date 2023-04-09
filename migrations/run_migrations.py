@@ -12,7 +12,7 @@ if __name__ == '__main__':
         host="localhost",
         user="root",
         password="root",
-        database="semhub"
+        database="repopilot"
     )
 
     cur = con.cursor()
