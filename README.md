@@ -33,22 +33,22 @@ Additionally, [SemGrep](https://semgrep.dev/), an open-source static analysis en
 ### Features
 
 1. **Summary**
-    This tool provides an overview summary of all the repositories or search for a specific one.
+    * This tool provides an overview summary of all the repositories or search for a specific one.
 2. **Rank by impact**
-   This feature allows you to view all high impact repositories.  
-   Repositories are scored based on the severity of their issues, and those with more severe issues are ranked higher. Repositories must have at least 20 issues and one HIGH level issue to be listed as "high impact".
-   It is a useful feature to identify repositories with good code quality.
+   * This feature allows you to view all high impact repositories.  
+   * Repositories are scored based on the severity of their issues, and those with more severe issues are ranked higher. Repositories must have at least 20 issues and one HIGH level issue to be listed as "high impact".
+   * It is a useful feature to identify repositories with good code quality.
 3. **Add new repo**
-   Users can submit a GitHub URL for that repo to be analysed and added to the database.
+   * Users can submit a GitHub URL for that repo to be analysed and added to the database.
 4. **Update**
-   While ranking all repositories, you can click on the "Update" button to update their metadata.
+   * While ranking all repositories, you can click on the "Update" button to update their metadata.
 5. **Pagination**
-   Results returned by a query can be paginated for better display.
+   * Results returned by a query can be paginated for better display.
 6. **URL Sanitization**
-   Uploaded URLs are sanitized to prevent malicious code execution.
+   * Uploaded URLs are sanitized to prevent malicious code execution.
 7. **AutoComplete Search**
-   Search results appear in real-time as users type in the summary section of the app.
-   Allows users to find and view repositories with the same prefix easily. 
+   * Search results appear in real-time as users type in the summary section of the app.
+   * Allows users to find and view repositories with the same prefix easily. 
 
 ## Installation
 1. Create a virtual environment
