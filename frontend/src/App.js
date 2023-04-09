@@ -1,41 +1,49 @@
+import Navbar from './components/navbar';
+import Home from './components/Home';
+
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import { DisplayArea } from './components/displayArea'
+import { DisplayArea } from './components/DisplayArea'
+
+import { createContext, useEffect } from 'react';
 const BACKEND_URL = 'http://127.0.0.1:3001'
 
+
+const ThemeContext = createContext({
+  theme: "dark",
+  changeTheme: () => {},
+})
 
 
 
 function App() {
-  const [displayData, setDisplayData] = useState('');
-  const [displayDataType, setDisplayDataType] = useState(false);
+  const [theme, setTheme] = useState("dark");
+  useEffect(() => {
+    if (theme == "dark") {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+  }, [theme])
 
-  async function getSummary() {
-    setDisplayDataType('summary')
-    setDisplayData(await (await fetch(BACKEND_URL + '/summary')).json());
-  }
-
-  async function getRankings() {
-    
-    setDisplayData((await (await fetch(BACKEND_URL + '/rank_all')).json()));
-    setDisplayDataType('rank_all')
+  const changeTheme = () => {
+    if (theme == "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-
-        <button onClick={getSummary}>Summary</button>
-        <button onClick={getRankings}>getRankings</button>
-        
-          <DisplayArea type={displayDataType} data={displayData}></DisplayArea>
-        
-
-
-      </header>
-    </div>
+    <ThemeContext.Provider value={{ theme: theme, changeTheme }}>
+      <button className="mode" onClick={changeTheme}>{theme} mode</button>
+      <Navbar></Navbar>
+    </ThemeContext.Provider>
   );
 }
 
 export default App;
+

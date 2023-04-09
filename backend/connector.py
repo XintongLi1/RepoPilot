@@ -1,7 +1,8 @@
 import mysql.connector
 
+
 class Connector:
-    instance = None
+    instance: mysql.connector.MySQLConnection = None
 
     def __init__(self):
         pass
@@ -9,7 +10,7 @@ class Connector:
     def getConnectorInstance():
         if Connector.instance:
             return Connector.instance
-        
+
         Connector.instance = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -18,4 +19,3 @@ class Connector:
         )
 
         return Connector.instance
-
